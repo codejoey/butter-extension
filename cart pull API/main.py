@@ -1,14 +1,16 @@
 from flask import Flask, jsonify, request
 app=Flask(__name__)
 
-#import our function from the price.py file
-from price import top_colors
+#import our functions from the price.py file
+from price import cartFromUrl
+from price import itemFromUrl
+
 @app.route("/",methods=['GET','POST'])
 def index():
     if request.method=='GET':
 #getting the url argument       
         url = request.args.get('url')
-        result=top_colors(str(url))
+        result=cartFromUrl(str(url))
         return jsonify(result)
     else:
         return jsonify({'Error':"This is a GET API method"})
