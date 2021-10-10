@@ -1,0 +1,24 @@
+{ 
+    "name": "Coupon Finder",
+    "version": "0.1",
+    "description": "Coupons..",
+    "permissions": [
+        "activeTab", 
+        "<all_urls>",
+        "tabs"
+    ],
+    "host_permissions":[
+        "<all_urls>"
+    ],
+    "background": {
+        "service_worker": "firebase.js"
+    },
+    "content_scripts": [
+        {
+            "matches": ["<all_urls>"],
+            "js": ["app.js"],
+            "run_at": "document_end"
+        }
+    ],
+    "manifest_version": 3
+}

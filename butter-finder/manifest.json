@@ -1,0 +1,14 @@
+{
+    "name": "butter Extension",
+    "version": "0.1",
+    "description": "smooth like butter",
+    "manifest_version": 3,
+    "background":{
+      "service_worker": "serviceWorker.js"
+    },
+    "host_permissions": ["<all_urls>"],
+    "permissions": ["scripting", "storage"],
+    "options_ui":{
+      "page": "opt.html"
+    }
+}
