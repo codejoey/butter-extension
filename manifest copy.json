@@ -1,0 +1,24 @@
+{ 
+    "name": "Coupon Finder",
+    "version": "0.1",
+    "description": "Coupons..",
+    "permissions": [ #entered as an array
+        "activeTab", #gives access to user current active tab 
+        "<all_urls>", #run on all urls
+        "tabs" #access other tabs, background pages
+    ],
+    "background": {
+        "page": "background.html", #file that runs in background 
+        "persistent": false #don't run all the time, only when called
+    }
+},
+"content_scripts": [ #inject content into page
+    {
+        "matches": ["<all_urls"],
+        "js": ["app.js"],
+        "run_at": "document_end"
+    }
+], #infect content into page
+"manifest_version": 2,
+"content_security_policy": "script-src 'self' https://www.gstatic.com/ https://*.firebaseio.com https://www.googleapis.com; object-src 'self'"
+}
